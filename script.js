@@ -3,11 +3,8 @@ const botToken    = "7844729808:AAHo63qnseNesZNtprvMm3d1R51yyrqAEvI";
 const chatId      = "7773047224";
 const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-/* ══════════════════════════════════
-   Scroll Reveal
-══════════════════════════════════ */
+/* ────────── Scroll Reveal ────────── */
 (function initReveal() {
-    // Add reveal class to target sections
     document.querySelectorAll('.section, .price-strip, .sec-head, .g-card, .order-form-wrap, .order-aside, .rating-card')
         .forEach(el => el.classList.add('reveal'));
 
@@ -28,9 +25,7 @@ const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 
-/* ══════════════════════════════════
-   Navbar scroll effect
-══════════════════════════════════ */
+/* ────────── Navbar scroll effect ────────── */
 (function navScroll() {
     const nav = document.querySelector('.nav');
     if (!nav) return;
@@ -45,18 +40,14 @@ const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     }, { passive: true });
 })();
 
-/* ══════════════════════════════════
-   Gallery card stagger
-══════════════════════════════════ */
+/* ────────── Gallery card stagger ────────── */
 (function galleryStagger() {
     document.querySelectorAll('.g-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.08}s`;
     });
 })();
 
-/* ══════════════════════════════════
-   Telegram helper
-══════════════════════════════════ */
+/* ────────── Telegram helper ────────── */
 function postToTelegram(text) {
     return fetch(telegramUrl, {
         method: 'POST',
@@ -70,9 +61,7 @@ function postToTelegram(text) {
     });
 }
 
-/* ══════════════════════════════════
-   Success modal
-══════════════════════════════════ */
+/* ────────── Success modal ────────── */
 function showSuccess(message) {
     const overlay = document.getElementById('successOverlay');
     const msg     = document.getElementById('successMsg');
@@ -89,9 +78,7 @@ document.addEventListener('click', (e) => {
     if (overlay?.classList.contains('active') && e.target === overlay) closeSuccess();
 });
 
-/* ══════════════════════════════════
-   Loading state
-══════════════════════════════════ */
+/* ────────── Loading state ────────── */
 function setLoading(btn, on) {
     if (!btn) return;
     btn.disabled  = on;
@@ -99,9 +86,7 @@ function setLoading(btn, on) {
     btn.style.cursor  = on ? 'wait' : '';
 }
 
-/* ══════════════════════════════════
-   Shake invalid inputs
-══════════════════════════════════ */
+/* ────────── Shake invalid inputs ────────── */
 function shakeInvalid(ids) {
     ids.forEach(id => {
         const el = document.getElementById(id);
@@ -112,14 +97,56 @@ function shakeInvalid(ids) {
     });
 }
 
-/* ══════════════════════════════════
-   Send Order
-══════════════════════════════════ */
+/* ────────── QUANTITY SELECTOR LOGIC ────────── */
+(function initQuantity() {
+    const quantityInput = document.getElementById('gameQuantity');
+    const minusBtn = document.getElementById('qtyMinus');
+    const plusBtn = document.getElementById('qtyPlus');
+    if (!quantityInput) return;
+
+    const min = 1;
+    const max = 4;  // الحد الأقصى حسب المخزون
+
+    const updateValue = (newVal) => {
+        let val = parseInt(newVal);
+        if (isNaN(val)) val = min;
+        val = Math.min(max, Math.max(min, val));
+        quantityInput.value = val;
+    };
+
+    // أحداث الأزرار
+    minusBtn?.addEventListener('click', () => {
+        let current = parseInt(quantityInput.value);
+        if (isNaN(current)) current = min;
+        updateValue(current - 1);
+    });
+    plusBtn?.addEventListener('click', () => {
+        let current = parseInt(quantityInput.value);
+        if (isNaN(current)) current = min;
+        updateValue(current + 1);
+    });
+    // الإدخال اليدوي
+    quantityInput.addEventListener('input', (e) => {
+        let raw = e.target.value;
+        if (raw === '') return;
+        let num = parseInt(raw);
+        if (!isNaN(num)) {
+            updateValue(num);
+        }
+    });
+    quantityInput.addEventListener('blur', () => {
+        let current = parseInt(quantityInput.value);
+        updateValue(isNaN(current) ? min : current);
+    });
+})();
+
+/* ────────── Send Order (مع إضافة الكمية) ────────── */
 async function sendOrderToTelegram() {
     const name  = document.getElementById('custName').value.trim();
     const phone = document.getElementById('custPhone').value.trim();
     const email = document.getElementById('custEmail').value.trim();
     const note  = document.getElementById('orderNote').value.trim();
+    const quantity = document.getElementById('gameQuantity').value.trim();
 
     const missing = ['custName','custPhone','custEmail'].filter(id => !document.getElementById(id).value.trim());
     if (missing.length) { shakeInvalid(missing); return; }
@@ -128,14 +155,15 @@ async function sendOrderToTelegram() {
     if (fp.startsWith('0')) fp = '213' + fp.substring(1);
     const waLink = `https://wa.me/${fp}`;
 
+    const totalPrice = 700 * parseInt(quantity);
     const text =
         `📜 *طلب جديد — لعبة رَمْز*\n\n` +
         `👤 *الاسم:* ${name}\n` +
         `📞 *الهاتف:* ${phone}\n` +
         `📧 *البريد:* ${email}\n` +
+        `🔢 *الكمية:* ${quantity} نسخة\n` +
+        `💰 *السعر الإجمالي:* ${totalPrice} دج (700 دج للقطعة)\n` +
         `📝 *الملاحظات:* ${note || 'لا توجد'}\n\n` +
-        `💰 *السعر:* 700 دج (خصم من 750 دج)\n` +
-        `📦 *الكمية:* 4 قطع\n\n` +
         `💬 [ارسل رسالة واتساب للزبون](${waLink})`;
 
     const btn = document.querySelector('.btn-submit');
@@ -148,6 +176,7 @@ async function sendOrderToTelegram() {
             ['custName','custPhone','custEmail','orderNote'].forEach(id => {
                 document.getElementById(id).value = '';
             });
+            document.getElementById('gameQuantity').value = '1';
         } else {
             showSuccess('❌ حدث خطأ أثناء الإرسال. يرجى المحاولة مجدداً.');
         }
@@ -158,9 +187,7 @@ async function sendOrderToTelegram() {
     }
 }
 
-/* ══════════════════════════════════
-   Send Rating
-══════════════════════════════════ */
+/* ────────── Send Rating ────────── */
 async function sendRatingToTelegram() {
     const ratingEl = document.querySelector('input[name="rating"]:checked');
     const note     = document.getElementById('ratingNote').value.trim();
