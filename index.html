@@ -3,157 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لعبة رمز - RAMZ | الموقع الرسمي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <title>رَمْـز — لعبة التخطيط والخداع</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel+Decorative:wght@700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- خلفية الجسيمات -->
-    <div class="bg-particles" id="bgParticles"></div>
+    <div class="noise-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <header>
-        <div class="header-inner">
-            <div class="logo-area">
-                <div class="logo-glow-ring"></div>
-                <img src="1000050243.png" alt="شعار لعبة رمز" id="mainLogo">
+    <!-- ══ HERO ══ -->
+    <header class="hero">
+        <nav class="nav">
+            <div class="nav-brand">رَمْز</div>
+            <div class="nav-links">
+                <a href="#gallery">المعرض</a>
+                <a href="#order">اطلب الآن</a>
+                <a href="#rating">التقييم</a>
             </div>
-            <div class="header-text">
-                <h1 class="game-title">رَمْـز</h1>
-                <div class="title-divider"><span></span><span class="diamond">◆</span><span></span></div>
-                <p class="tagline">لعبة التخطيط والخداع &nbsp;·&nbsp; 2-6 لاعبين</p>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-badge">✦ لعبة بطاقات أصيلة · صنع يدوي ✦</div>
+
+            <div class="logo-wrapper">
+                <div class="logo-ring logo-ring--outer"></div>
+                <div class="logo-ring logo-ring--mid"></div>
+                <div class="logo-ring logo-ring--inner"></div>
+                <img src="1000050243.png" alt="شعار رَمْز" class="hero-logo" id="mainLogo">
+            </div>
+
+            <h1 class="hero-title">رَمْـز</h1>
+            <div class="hero-divider">
+                <span class="hd-line"></span>
+                <span class="hd-gem">◈</span>
+                <span class="hd-line"></span>
+            </div>
+            <p class="hero-subtitle">RAMZ</p>
+            <p class="hero-desc">لعبة التخطيط والخداع &nbsp;·&nbsp; ٢–٦ لاعبين</p>
+
+            <div class="hero-actions">
+                <a href="#order" class="btn-hero-primary">
+                    احجز نسختك الآن
+                    <span class="btn-arrow">←</span>
+                </a>
+                <a href="#gallery" class="btn-hero-ghost">استعرض البطاقات</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num">٦</span>
+                    <span class="stat-lbl">شخصيات</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat-item">
+                    <span class="stat-num">٢–٦</span>
+                    <span class="stat-lbl">لاعبين</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat-item">
+                    <span class="stat-num">٤</span>
+                    <span class="stat-lbl">قطع متاحة</span>
+                </div>
             </div>
         </div>
-        <div class="header-scroll-hint">▾</div>
+
+        <div class="hero-scroll-hint">
+            <span>اكتشف</span>
+            <div class="scroll-chevron"></div>
+        </div>
     </header>
 
-    <div class="main-container">
+    <!-- ══ GALLERY ══ -->
+    <section class="section" id="gallery">
+        <div class="sec-head">
+            <span class="sec-tag">◆ المعرض ◆</span>
+            <h2 class="sec-title">أبطال الملحمة والبطاقات</h2>
+            <p class="sec-desc">كل بطاقة تحكي قصة — كل شخصية تحمل سراً</p>
+        </div>
 
-        <!-- قسم المعرض -->
-        <section class="gallery-section">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                أبطال الملحمة والبطاقات
-                <span class="title-line"></span>
-            </h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
+        <div class="gallery-grid">
+            <div class="g-card g-card--wide">
+                <div class="g-img-wrap">
                     <img src="1000050240.png" alt="جميع الشخصيات">
-                    <div class="gallery-overlay"><span>جميع الشخصيات</span></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="1000050247.png" alt="بطاقة الزعيم">
-                    <div class="gallery-overlay"><span>بطاقة الزعيم</span></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="1000050245.png" alt="بطاقة المتمرد">
-                    <div class="gallery-overlay"><span>بطاقة المتمرد</span></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="1000050246.png" alt="ظهر البطاقة">
-                    <div class="gallery-overlay"><span>ظهر البطاقة</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم التقييم -->
-        <section class="rating-section card-style">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                قيّم تجربتك مع رَمْز
-                <span class="title-line"></span>
-            </h2>
-            <div class="star-rating">
-                <input type="radio" name="rating" id="star5" value="5"><label for="star5" title="ممتاز">★</label>
-                <input type="radio" name="rating" id="star4" value="4"><label for="star4" title="جيد جداً">★</label>
-                <input type="radio" name="rating" id="star3" value="3"><label for="star3" title="جيد">★</label>
-                <input type="radio" name="rating" id="star2" value="2"><label for="star2" title="مقبول">★</label>
-                <input type="radio" name="rating" id="star1" value="1"><label for="star1" title="ضعيف">★</label>
-            </div>
-            <div class="input-group">
-                <textarea id="ratingNote" placeholder="أضف ملاحظاتك أو انطباعك عن اللعبة..."></textarea>
-            </div>
-            <button onclick="sendRatingToTelegram()" class="btn-secondary">
-                <span class="btn-icon">✦</span> إرسال التقييم
-            </button>
-        </section>
-
-        <!-- قسم الطلب -->
-        <section class="order-section card-style">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                اطلب نسختك الآن
-                <span class="title-line"></span>
-            </h2>
-            <!-- معلومات السعر والكمية -->
-            <div class="product-info-bar">
-                <div class="product-info-item">
-                    <span class="info-label">الكمية المتاحة</span>
-                    <span class="info-value quantity-badge">4 قطع فقط 🔥</span>
-                </div>
-                <div class="product-info-divider">◆</div>
-                <div class="product-info-item">
-                    <span class="info-label">السعر</span>
-                    <div class="price-block">
-                        <span class="price-old">750 دج</span>
-                        <span class="price-new">700 دج</span>
-                        <span class="discount-badge">خصم 7٪</span>
+                    <div class="g-overlay">
+                        <span class="g-tag">الطاقم الكامل</span>
+                        <p class="g-name">جميع الشخصيات</p>
                     </div>
                 </div>
             </div>
-
-            <div class="order-form">
-                <div class="input-group">
-                    <label for="custName">الاسم الكامل</label>
-                    <input type="text" id="custName" placeholder="أدخل اسمك الكريم">
+            <div class="g-card">
+                <div class="g-img-wrap">
+                    <img src="1000050247.png" alt="بطاقة الزعيم">
+                    <div class="g-overlay">
+                        <span class="g-tag">بطاقة</span>
+                        <p class="g-name">الزعيم</p>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="custPhone">رقم الهاتف - واتساب</label>
-                    <input type="tel" id="custPhone" placeholder="0XXXXXXXXX">
-                </div>
-                <div class="input-group">
-                    <label for="custEmail">البريد الإلكتروني</label>
-                    <input type="email" id="custEmail" placeholder="example@mail.com">
-                </div>
-                <div class="input-group">
-                    <label for="orderNote">ملاحظات إضافية</label>
-                    <textarea id="orderNote" placeholder="أضف أي ملاحظة خاصة بطلبك هنا..."></textarea>
-                </div>
-                <button onclick="sendOrderToTelegram()" class="btn-primary">
-                    <span class="btn-icon">📜</span> تأكيد الطلب وإرسال
-                </button>
             </div>
-        </section>
+            <div class="g-card">
+                <div class="g-img-wrap">
+                    <img src="1000050245.png" alt="بطاقة المتمرد">
+                    <div class="g-overlay">
+                        <span class="g-tag">بطاقة</span>
+                        <p class="g-name">المتمرد</p>
+                    </div>
+                </div>
+            </div>
+            <div class="g-card">
+                <div class="g-img-wrap">
+                    <img src="1000050246.png" alt="ظهر البطاقة">
+                    <div class="g-overlay">
+                        <span class="g-tag">تصميم</span>
+                        <p class="g-name">ظهر البطاقة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ══ PRICE STRIP ══ -->
+    <div class="price-strip">
+        <div class="ps-inner">
+            <div class="ps-left">
+                <p class="ps-tag">عرض محدود</p>
+                <div class="ps-prices">
+                    <span class="ps-old">750 دج</span>
+                    <span class="ps-new">700 دج</span>
+                    <span class="ps-disc">وفّر 50 دج</span>
+                </div>
+            </div>
+            <div class="ps-divider"></div>
+            <div class="ps-right">
+                <div class="ps-stock">
+                    <span class="ps-dot"></span>
+                    تبقّى <strong>٤ قطع</strong> فقط
+                </div>
+                <a href="#order" class="ps-cta">احجز الآن ←</a>
+            </div>
+        </div>
     </div>
 
-    <!-- نافذة النجاح -->
+    <!-- ══ ORDER ══ -->
+    <section class="section" id="order">
+        <div class="sec-head">
+            <span class="sec-tag">◆ الطلب ◆</span>
+            <h2 class="sec-title">اطلب نسختك الآن</h2>
+            <p class="sec-desc">أملأ البيانات وسنتواصل معك عبر واتساب</p>
+        </div>
+
+        <div class="order-layout">
+            <div class="order-form-wrap">
+                <div class="form-group">
+                    <label for="custName"><span class="lbl-dot">◆</span> الاسم الكامل</label>
+                    <input type="text" id="custName" placeholder="أدخل اسمك الكريم">
+                </div>
+                <div class="form-group">
+                    <label for="custPhone"><span class="lbl-dot">◆</span> رقم الهاتف — واتساب</label>
+                    <input type="tel" id="custPhone" placeholder="0XXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="custEmail"><span class="lbl-dot">◆</span> البريد الإلكتروني</label>
+                    <input type="email" id="custEmail" placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="orderNote"><span class="lbl-dot">◆</span> ملاحظات إضافية</label>
+                    <textarea id="orderNote" placeholder="أضف أي ملاحظة خاصة بطلبك..."></textarea>
+                </div>
+                <button onclick="sendOrderToTelegram()" class="btn-submit">
+                    <span class="btn-submit-icon">📜</span>
+                    تأكيد الطلب وإرسال
+                </button>
+            </div>
+
+            <div class="order-aside">
+                <div class="aside-title">ملخص الطلب</div>
+                <div class="aside-row">
+                    <span class="ar-label">السعر الأصلي</span>
+                    <span class="ar-val ar-val--strike">750 دج</span>
+                </div>
+                <div class="aside-row aside-row--highlight">
+                    <span class="ar-label">السعر بعد الخصم</span>
+                    <span class="ar-val ar-val--gold">700 دج</span>
+                </div>
+                <div class="aside-row">
+                    <span class="ar-label">الكمية المتاحة</span>
+                    <span class="ar-val">٤ قطع فقط</span>
+                </div>
+                <div class="aside-row">
+                    <span class="ar-label">التواصل</span>
+                    <span class="ar-val">واتساب</span>
+                </div>
+                <div class="aside-note">
+                    ✦ سيتم التواصل معك لتأكيد الطلب وترتيب التسليم
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ RATING ══ -->
+    <section class="section rating-wrap" id="rating">
+        <div class="sec-head">
+            <span class="sec-tag">◆ التقييم ◆</span>
+            <h2 class="sec-title">قيّم تجربتك مع رَمْز</h2>
+            <p class="sec-desc">رأيك يساعدنا على التطوير المستمر</p>
+        </div>
+
+        <div class="rating-card">
+            <div class="star-rating">
+                <input type="radio" name="rating" id="star5" value="5">
+                <label for="star5" title="ممتاز">★</label>
+                <input type="radio" name="rating" id="star4" value="4">
+                <label for="star4" title="جيد جداً">★</label>
+                <input type="radio" name="rating" id="star3" value="3">
+                <label for="star3" title="جيد">★</label>
+                <input type="radio" name="rating" id="star2" value="2">
+                <label for="star2" title="مقبول">★</label>
+                <input type="radio" name="rating" id="star1" value="1">
+                <label for="star1" title="ضعيف">★</label>
+            </div>
+            <div class="form-group">
+                <textarea id="ratingNote" placeholder="أضف ملاحظاتك أو انطباعك عن اللعبة..."></textarea>
+            </div>
+            <button onclick="sendRatingToTelegram()" class="btn-rating">
+                <span>✦</span> إرسال التقييم
+            </button>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="1000050243.png" alt="رمز" class="footer-logo">
+                <div>
+                    <p class="footer-name">رَمْـز</p>
+                    <p class="footer-tagline">لعبة التخطيط والخداع</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://www.instagram.com/ramz.bm?igsh=MWJvNTF1YmltNXR5Mg==" target="_blank" class="soc-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+                <a href="https://www.facebook.com/share/172bR7UYNp/" target="_blank" class="soc-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+                <a href="https://wa.me/213655603829" target="_blank" class="soc-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="f-orn">◆ ◆ ◆</span>
+            <p class="f-copy">&copy; 2026 رَمْز &nbsp;·&nbsp; تصميم anamel.13</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
     <div class="success-overlay" id="successOverlay">
         <div class="success-box">
             <div class="success-icon">✦</div>
             <p id="successMsg">تم الإرسال بنجاح!</p>
-            <button onclick="closeSuccess()" class="btn-secondary" style="margin-top:20px;">إغلاق</button>
+            <button onclick="closeSuccess()" class="btn-close-modal">إغلاق</button>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-ornament">◆ ◆ ◆</div>
-        <div class="social-links">
-            <a href="https://www.instagram.com/ramz.bm?igsh=MWJvNTF1YmltNXR5Mg==" target="_blank" class="social-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                Instagram
-            </a>
-            <a href="https://www.facebook.com/share/172bR7UYNp/" target="_blank" class="social-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                Facebook
-            </a>
-            <a href="https://wa.me/213655603829" target="_blank" class="social-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-            </a>
-        </div>
-        <p class="copyright">&copy; 2026 رَمْز &nbsp;·&nbsp; تصميم anamel.13</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
